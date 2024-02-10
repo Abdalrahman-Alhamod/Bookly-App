@@ -2,22 +2,19 @@ import 'package:bookly/core/utils/app_images.dart';
 import 'package:flutter/material.dart';
 
 class CustomListViewItem extends StatelessWidget {
-  const CustomListViewItem({super.key});
-
+  const CustomListViewItem({super.key, required this.bookIndex});
+  final int bookIndex;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * .3,
-      child: AspectRatio(
-        aspectRatio: 1.3 / 2,
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            image: const DecorationImage(
-              fit: BoxFit.fill,
-              image: AssetImage(
-                AppImages.bookCover1,
-              ),
+    return AspectRatio(
+      aspectRatio: 1.3 / 2,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16),
+          image: DecorationImage(
+            fit: BoxFit.fill,
+            image: AssetImage(
+              AppImages.bookCovers.elementAt(bookIndex),
             ),
           ),
         ),

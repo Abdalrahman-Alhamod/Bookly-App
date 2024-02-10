@@ -4,4 +4,11 @@ class AppImages {
   static const bookCover2 = 'assets/images/test_book2.jpg';
   static const bookCover3 = 'assets/images/test_book3.jpeg';
   static const bookCover4 = 'assets/images/test_book4.jpeg';
+
+  static List<String> bookCovers = [
+    bookCover1,
+    bookCover2,
+    bookCover3,
+    bookCover4,
+  ];
 }
