@@ -1,4 +1,5 @@
-import 'package:bookly/core/utils/app_text_styles.dart';
+import 'package:bookly/core/utils/app_styles.dart';
+import 'package:bookly/features/Home/presentation/views/widgets/best_seller_list_view_item.dart';
 import 'package:bookly/features/Home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:bookly/features/Home/presentation/views/widgets/featured_book_list_view.dart';
 import 'package:flutter/material.dart';
@@ -17,10 +18,16 @@ class HomeViewBody extends StatelessWidget {
           height: 48,
         ),
         Padding(
-          padding: EdgeInsets.only(left: 24.0),
+          padding: EdgeInsets.only(left: 30.0),
           child: Text(
             'Best Seller',
-            style: AppTextStyles.titleMedium,
+            style: AppStyles.textStyle_18_SemiBold_Montserrat,
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(left: 30.0, top: 20),
+          child: BestSellerListViewItem(
+            bookIndex: 0,
           ),
         ),
       ],
