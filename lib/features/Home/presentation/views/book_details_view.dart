@@ -1,6 +1,7 @@
+import 'package:bookly/core/utils/app_styles.dart';
 import 'package:bookly/features/Home/presentation/views/widgets/book_details_app_bar.dart';
+import 'package:bookly/features/Home/presentation/views/widgets/book_rating.dart';
 import 'package:bookly/features/Home/presentation/views/widgets/cutom_list_view_item.dart';
-import 'package:bookly/features/Home/presentation/views/widgets/featured_book_list_view.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsView extends StatelessWidget {
@@ -25,6 +26,27 @@ class BookDetailsView extends StatelessWidget {
               child: const CustomBookImage(
                 bookIndex: 0,
               ),
+            ),
+            const Text(
+              'The Jungle Book',
+              style: AppStyles.textStyle_30_Regular_GTSectraFine,
+            ),
+            const SizedBox(
+              height: 6,
+            ),
+            const Opacity(
+              opacity: 0.7,
+              child: Text(
+                'Rudyard Kipling',
+                style: AppStyles.textStyle_18_Medium_Montserrat,
+              ),
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            const BookRating(),
+            const SizedBox(
+              height: 37,
             ),
           ],
         ),

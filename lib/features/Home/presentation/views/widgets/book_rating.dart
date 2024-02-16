@@ -1,4 +1,3 @@
-import 'package:bookly/core/utils/app_colors.dart';
 import 'package:bookly/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -8,27 +7,30 @@ class BookRating extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return const Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Icon(
+        Icon(
           FontAwesomeIcons.solidStar,
           size: 15,
           color: Color(0xffFFDD4F),
         ),
-        const SizedBox(
+        SizedBox(
           width: 6.3,
         ),
-        const Text(
+        Text(
           '4.8',
           style: AppStyles.textStyle_16_Medium_Montserrat,
         ),
-        const SizedBox(
+        SizedBox(
           width: 5,
         ),
-        Text(
-          '(2859)',
-          style: AppStyles.textStyle_14_Regular_Montserrat
-              .copyWith(color: AppColors.secondaryTextColor),
+        Opacity(
+          opacity: 0.5,
+          child: Text(
+            '(2859)',
+            style: AppStyles.textStyle_14_Regular_Montserrat,
+          ),
         ),
       ],
     );

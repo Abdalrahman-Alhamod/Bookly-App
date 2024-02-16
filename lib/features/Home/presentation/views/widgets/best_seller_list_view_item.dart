@@ -1,4 +1,3 @@
-import 'package:bookly/core/utils/app_colors.dart';
 import 'package:bookly/core/utils/app_route.dart';
 import 'package:bookly/core/utils/app_styles.dart';
 import 'package:bookly/features/Home/presentation/views/widgets/book_rating.dart';
@@ -39,29 +38,31 @@ class BestSellerListViewItem extends StatelessWidget {
             ),
             SizedBox(
               width: MediaQuery.of(context).size.width * .5,
-              child: Column(
+              child: const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'Harry Potter and the Goblet of Fire',
                     style: AppStyles.textStyle_20_Regular_GTSectraFine,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2,
                   ),
-                  const SizedBox(
+                  SizedBox(
                     height: 3,
                   ),
-                  Text(
-                    'J.K. Rowling',
-                    style: AppStyles.textStyle_14_Medium_Montserrat
-                        .copyWith(color: AppColors.secondaryTextColor),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 1,
+                  Opacity(
+                    opacity: 0.7,
+                    child: Text(
+                      'J.K. Rowling',
+                      style: AppStyles.textStyle_14_Medium_Montserrat,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                    ),
                   ),
-                  const SizedBox(
+                  SizedBox(
                     height: 3,
                   ),
-                  const Expanded(
+                  Expanded(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
