@@ -6,8 +6,8 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/app_images.dart';
 
-class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({super.key, required this.bookIndex});
+class BookListViewItem extends StatelessWidget {
+  const BookListViewItem({super.key, required this.bookIndex});
   final int bookIndex;
   @override
   Widget build(BuildContext context) {
