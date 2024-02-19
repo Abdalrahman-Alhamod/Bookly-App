@@ -21,7 +21,7 @@ class BookDetailsSection extends StatelessWidget {
             bottom: 45,
           ),
           child: const CustomBookImage(
-            bookIndex: 0,
+            imageUrl: 'https://picsum.photos/536/354',
           ),
         ),
         const Text(
