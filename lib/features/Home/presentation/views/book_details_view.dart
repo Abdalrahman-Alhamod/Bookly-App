@@ -1,39 +1,27 @@
-import 'package:bookly/features/Home/presentation/views/widgets/book_details_app_bar.dart';
+import 'package:bookly/features/Home/data/models/book_model/book_model.dart';
+import 'package:bookly/features/Home/presentation/manager/Similar%20Books%20Cubit/similar_books_cubit.dart';
 import 'package:flutter/material.dart';
-import 'widgets/book_details_section.dart';
-import 'widgets/similar_books_section.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'widgets/book_details_view_body.dart';
 
-class BookDetailsView extends StatelessWidget {
-  const BookDetailsView({super.key});
+class BookDetailsView extends StatefulWidget {
+  const BookDetailsView({super.key, required this.bookModel});
+  final BookModel bookModel;
+
+  @override
+  State<BookDetailsView> createState() => _BookDetailsViewState();
+}
+
+class _BookDetailsViewState extends State<BookDetailsView> {
+  @override
+  void initState() {
+    BlocProvider.of<SimilarBooksCubit>(context).fetchSimilarBooks(
+        category: widget.bookModel.volumeInfo.categories![0]);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return const CustomScrollView(
-      slivers: [
-        SliverFillRemaining(
-          hasScrollBody: false,
-          child: Scaffold(
-            body: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30),
-              child: Column(
-                children: [
-                  BookDetailsAppBar(),
-                  BookDetailsSection(),
-                  Expanded(
-                    child: SizedBox(
-                      height: 50,
-                    ),
-                  ),
-                  SimilarBooksSection(),
-                  SizedBox(
-                    height: 40,
-                  ),
-                ],
-              ),
-            ),
-          ),
-        )
-      ],
-    );
+    return const BookDetailsViewBody();
   }
 }
