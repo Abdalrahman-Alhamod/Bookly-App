@@ -12,18 +12,20 @@ class SimilarBooksListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * .1,
+      height: MediaQuery.of(context).size.height * .12,
       child: BlocBuilder<SimilarBooksCubit, SimilarBooksState>(
         builder: (context, state) {
           if (state is SimilarBooksSuccess) {
             return ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: 10,
+              itemCount: state.books.length,
               itemBuilder: (context, index) {
-                return const Padding(
-                  padding: EdgeInsets.only(right: 10),
+                return Padding(
+                  padding: const EdgeInsets.only(right: 10),
                   child: CustomBookImage(
-                    imageUrl: 'https://picsum.photos/536/354',
+                    imageUrl:
+                        state.books[index].volumeInfo.imageLinks?.thumbnail ??
+                            '',
                   ),
                 );
               },

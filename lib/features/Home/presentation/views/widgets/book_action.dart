@@ -14,7 +14,7 @@ class BookAction extends StatelessWidget {
           Expanded(
             child: CustomButton(
               text: Text(
-                '19.99€',
+                'Free',
                 style: AppStyles.textStyle_18_Bold_Montserrat
                     .copyWith(color: Colors.black, fontWeight: FontWeight.w900),
               ),
