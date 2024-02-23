@@ -3,32 +3,33 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BookRating extends StatelessWidget {
-  const BookRating({super.key});
-
+  const BookRating({super.key, required this.rating, required this.count});
+  final int rating;
+  final int count;
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return  Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(
+        const Icon(
           FontAwesomeIcons.solidStar,
           size: 15,
           color: Color(0xffFFDD4F),
         ),
-        SizedBox(
+        const SizedBox(
           width: 6.3,
         ),
         Text(
-          '4.8',
+          rating.toString(),
           style: AppStyles.textStyle_16_Medium_Montserrat,
         ),
-        SizedBox(
+        const SizedBox(
           width: 5,
         ),
         Opacity(
           opacity: 0.5,
           child: Text(
-            '(2859)',
+            '($count)',
             style: AppStyles.textStyle_14_Regular_Montserrat,
           ),
         ),

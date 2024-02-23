@@ -1,14 +1,14 @@
 import 'package:bookly/core/utils/app_route.dart';
 import 'package:bookly/core/utils/app_styles.dart';
+import 'package:bookly/features/Home/data/models/book_model/book_model.dart';
 import 'package:bookly/features/Home/presentation/views/widgets/book_rating.dart';
+import 'package:bookly/features/Home/presentation/views/widgets/cutom_list_view_item.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../core/utils/app_images.dart';
-
 class BookListViewItem extends StatelessWidget {
-  const BookListViewItem({super.key, required this.bookIndex});
-  final int bookIndex;
+  const BookListViewItem({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -19,58 +19,49 @@ class BookListViewItem extends StatelessWidget {
         height: 125,
         child: Row(
           children: [
-            AspectRatio(
-              aspectRatio: 1.3 / 2,
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  image: DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage(
-                      AppImages.bookCovers.elementAt(bookIndex),
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            CustomBookImage(
+                imageUrl: bookModel.volumeInfo.imageLinks.thumbnail),
             const SizedBox(
               width: 30,
             ),
             SizedBox(
               width: MediaQuery.of(context).size.width * .5,
-              child: const Column(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Harry Potter and the Goblet of Fire',
+                    bookModel.volumeInfo.title!,
                     style: AppStyles.textStyle_20_Regular_GTSectraFine,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 3,
                   ),
                   Opacity(
                     opacity: 0.7,
                     child: Text(
-                      'J.K. Rowling',
+                      bookModel.volumeInfo.authors?[0] ?? 'Not Known',
                       style: AppStyles.textStyle_14_Medium_Montserrat,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 3,
                   ),
-                  Expanded(
+                  const Expanded(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          '19.99 €',
+                          'Free',
                           style: AppStyles.textStyle_20_Bold_Montserrat,
                         ),
-                        BookRating(),
+                        BookRating(
+                          rating: 4,
+                          count: 256,
+                        ),
                       ],
                     ),
                   )
